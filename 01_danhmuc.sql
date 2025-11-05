@@ -1,0 +1,121 @@
+-- 01_danhmuc.sql - Dữ liệu danh mục Cotekcon
+-- Bao gồm: PHONGBAN, CHUCVU, TRINHDO, VAITRO_DA, DANHMUC_VATTU, NHACUNGCAP
+
+USE cotekcon_db;
+
+INSERT INTO PHONGBAN (MaPB, TenPB, MoTa) VALUES
+('PB001', 'Phòng Hành chính - Nhân sự', 'Quản lý nhân sự, tuyển dụng, hồ sơ, hành chính.'),
+('PB002', 'Phòng Kế toán - Tài chính', 'Theo dõi tài chính, báo cáo kế toán, thanh toán.'),
+('PB003', 'Phòng Kỹ thuật', 'Thiết kế, kiểm định kỹ thuật và tiêu chuẩn thi công.'),
+('PB004', 'Phòng Thi công', 'Triển khai thi công tại các công trình.'),
+('PB005', 'Phòng Vật tư', 'Cung ứng vật tư, thiết bị và kiểm kê kho.'),
+('PB006', 'Phòng Dự án', 'Quản lý, giám sát và điều phối các dự án xây dựng.'),
+('PB007', 'Phòng Bảo trì', 'Phụ trách sửa chữa, bảo trì thiết bị và công trình sau thi công.');
+
+
+INSERT INTO CHUCVU (MaCVu, TenCVu, MoTa) VALUES
+('CV001', 'Giám đốc', 'Chịu trách nhiệm điều hành tổng thể doanh nghiệp, quyết định chiến lược.'),
+('CV002', 'Phó giám đốc', 'Hỗ trợ giám đốc, phụ trách một hoặc vài mảng chuyên môn.'),
+('CV003', 'Trưởng phòng', 'Quản lý hoạt động hàng ngày của phòng, phân công công việc, đánh giá nhân sự.'),
+('CV004', 'Phó phòng', 'Hỗ trợ trưởng phòng thực thi nhiệm vụ và điều phối nội bộ.'),
+('CV005', 'Kỹ sư chính', 'Chịu trách nhiệm kỹ thuật chính cho các hạng mục, thiết kế và nghiệm thu.'),
+('CV006', 'Kỹ sư giám sát', 'Giám sát thi công tại hiện trường, đảm bảo đúng bản vẽ và tiêu chuẩn.'),
+('CV007', 'Nhân viên kỹ thuật', 'Thực hiện các công việc kỹ thuật, hỗ trợ giám sát và thi công.'),
+('CV008', 'Nhân viên kế toán', 'Theo dõi sổ sách, lập chứng từ, hỗ trợ thanh toán và báo cáo tài chính.'),
+('CV009', 'Nhân viên hành chính', 'Quản lý văn phòng, hồ sơ nhân sự, tiếp nhận công văn và hỗ trợ hành chính.'),
+('CV010', 'Thủ kho', 'Quản lý nhập xuất tồn kho, kiểm kê vật tư và bảo quản thiết bị.'),
+('CV011', 'Lái xe', 'Vận chuyển vật tư, thiết bị và cán bộ theo yêu cầu công trình.'),
+('CV012', 'Thực tập sinh', 'Học việc, hỗ trợ các công việc cơ bản dưới sự hướng dẫn của kỹ sư/nhân sự.');
+
+
+
+INSERT INTO TRINHDO (MaTD, TenTD, MoTa) VALUES
+('TD001','Trung cấp','Bằng trung cấp chuyên nghiệp, cấp bởi cơ sở đào tạo nghề.'),
+('TD002','Cao đẳng','Bằng cao đẳng chính quy hoặc liên thông.'),
+('TD003','Đại học','Bằng tốt nghiệp đại học chính quy hoặc vừa học vừa làm.'),
+('TD004','Thạc sĩ','Bằng cao học, chuyên ngành kỹ thuật hoặc quản lý.'),
+('TD005','Tiến sĩ','Bằng nghiên cứu sinh, chuyên ngành kỹ thuật hoặc quản lý.'),
+('TD006','Chứng chỉ TOEIC 2 kỹ năng','Chứng chỉ tiếng Anh quốc tế đánh giá kỹ năng nghe và đọc hiểu.'),
+('TD007','Chứng chỉ TOEIC 4 kỹ năng','Chứng chỉ tiếng Anh quốc tế đánh giá khả năng giao tiếp bằng tiếng Anh trong môi trường công việc, kinh doanh, thương mại và du lịch.'),
+('TD008','IELTS','Chứng chỉ tiếng Anh học thuật quốc tế (4 kỹ năng).'),
+('TD009','Chứng chỉ an toàn lao động','Giấy chứng nhận đào tạo an toàn lao động theo quy định của Bộ LĐTBXH.'),
+('TD010','Chứng chỉ giám sát thi công','Do Bộ Xây dựng cấp cho kỹ sư giám sát công trình.'),
+('TD011','Chứng chỉ thiết kế kết cấu','Giấy phép hành nghề thiết kế công trình dân dụng.'),
+('TD012','Chứng chỉ kế toán trưởng','Cấp bởi Bộ Tài chính cho cán bộ kế toán.'),
+('TD013','Chứng chỉ PMP','Project Management Professional – Quản lý dự án quốc tế.'),
+('TD014','Chứng chỉ đấu thầu','Do Bộ KH&ĐT cấp cho cá nhân hành nghề đấu thầu.'),
+('TD015','Chứng chỉ tin học văn phòng','MOS / IC3 / tương đương.'),
+('TD016','Chứng chỉ lái xe nâng','Giấy phép vận hành thiết bị nâng hạ an toàn.'),
+('TD017','Chứng chỉ tiếng Nhật JLPT N3','Chứng chỉ năng lực tiếng Nhật trung cấp.'),
+('TD018','Chứng chỉ tiếng Nhật JLPT N2','Chứng chỉ năng lực tiếng Nhật khá cao, phục vụ giao tiếp công việc.'),
+('TD019','Chứng chỉ tiếng Nhật JLPT N1','Chứng chỉ năng lực tiếng Nhật cao cấp nhất, phục vụ công việc kỹ thuật & đàm phán.'),
+('TD020','Chứng chỉ tiếng Trung HSK3','Chứng chỉ năng lực tiếng Trung cơ bản.'),
+('TD021','Chứng chỉ tiếng Trung HSK4','Chứng chỉ năng lực tiếng Trung trung cấp.'),
+('TD022','Chứng chỉ tiếng Trung HSK6','Chứng chỉ năng lực tiếng Trung cao cấp nhất, phục vụ công việc chuyên môn.'),
+('TD023','Chứng chỉ QA/QC','Đào tạo kiểm soát chất lượng trong xây dựng.'),
+('TD024','Chứng chỉ quản lý vật tư','Đào tạo nội bộ Cotekcon cho nhân viên quản lý vật tư.'),
+('TD025','Chứng chỉ nội bộ An toàn Cotekcon','Do công ty cấp cho nhân viên hoàn thành khóa an toàn lao động nội bộ.'),
+('TD026','Chứng chỉ PCCC','Giấy chứng nhận phòng cháy chữa cháy cơ bản.'),
+('TD027','Chứng chỉ ISO 9001','Đào tạo quản lý chất lượng theo tiêu chuẩn ISO quốc tế.');
+
+
+INSERT INTO VAITRO_DA (MaVT, TenVT, MoTa) VALUES
+('VT001','Chủ nhiệm dự án','Phụ trách toàn bộ hoạt động và tiến độ dự án.'),
+('VT002','Kỹ sư thiết kế','Thiết kế bản vẽ kỹ thuật và kết cấu công trình.'),
+('VT003','Giám sát thi công','Theo dõi, kiểm tra chất lượng thi công.'),
+('VT004','Thủ kho dự án','Quản lý vật tư, hàng hóa tại công trình.'),
+('VT005','Kế toán dự án','Theo dõi chi phí, thanh toán và báo cáo tài chính dự án.'),
+('VT006','Quản lý vật tư','Phụ trách nhập – xuất – tồn vật tư tại dự án.'),
+('VT007','Nhân viên an toàn lao động','Đảm bảo quy định an toàn tại công trình.'),
+('VT008','Kỹ sư hiện trường','Giám sát thi công trực tiếp tại hiện trường.');
+
+
+INSERT INTO DANHMUC_VATTU (MaVTu, TenVTu, DonViTinh) VALUES
+('VTU001','Xi măng PCB40','Bao (50kg)'),
+('VTU002','Thép cuộn D10','Kg'),
+('VTU003','Thép thanh D16','Kg'),
+('VTU004','Gạch ống 8 lỗ','Viên'),
+('VTU005','Cát vàng','Khối'),
+('VTU006','Đá 1x2','Khối'),
+('VTU007','Bê tông trộn sẵn','Khối'),
+('VTU008','Sơn Dulux nội thất','Thùng'),
+('VTU009','Dây điện Cadivi 2.5mm','Mét'),
+('VTU010','Ống nước PVC phi 27','Mét'),
+('VTU011','Kính cường lực 10mm','Mét vuông'),
+('VTU012','Thang máy Mitsubishi','Bộ'),
+('VTU013','Đá granite ốp tường','Mét vuông'),
+('VTU014','Cửa gỗ công nghiệp','Bộ'),
+('VTU015','Cửa nhôm kính','Bộ'),
+('VTU016','Đèn LED panel 600x600','Cái'),
+('VTU017','Máy điều hòa Daikin 2HP','Cái'),
+('VTU018','Thiết bị vệ sinh Inax','Bộ'),
+('VTU019','Sắt hộp 40x40','Mét'),
+('VTU020','Cáp điện lực 4x16mm','Mét'),
+('VTU021','Ống thép luồn dây điện','Mét'),
+('VTU022','Gạch lát nền 60x60','Mét vuông'),
+('VTU023','Tôn lạnh 5 dem','Mét vuông'),
+('VTU024','Vữa xây M75','Khối'),
+('VTU025','Nhôm định hình cửa lùa','Mét'),
+('VTU026','Sơn chống thấm Kova','Thùng'),
+('VTU027','Keo dán gạch Weber','Bao'),
+('VTU028','Bulong neo M12','Cái'),
+('VTU029','Dây cáp thép 12mm','Mét'),
+('VTU030','Cốt pha phủ phim','Tấm');
+
+
+INSERT INTO NHACUNGCAP (MaNCC, TenNCC, QuocGia, DiaChi_ChiTiet, Email) VALUES
+('NCC001','Công ty CP Xi măng Hà Tiên','Việt Nam','KCN Biên Hòa 1, Đồng Nai','contact@hatiencement.vn'),
+('NCC002','Công ty TNHH Thép Việt Nhật','Việt Nam','KCN Phú Mỹ 2, Bà Rịa - Vũng Tàu','sales@vijaco.vn'),
+('NCC003','Công ty TNHH Sơn Dulux Việt Nam','Việt Nam','KCN VSIP, Bình Dương','info@duluxvn.com'),
+('NCC004','Công ty TNHH Cadivi','Việt Nam','KCN Hiệp Phước, TP.HCM','contact@cadivi.vn'),
+('NCC005','Công ty CP Kính Việt Phát','Việt Nam','Thị xã Từ Sơn, Bắc Ninh','sales@kinhvietphat.vn'),
+('NCC006','Công ty TNHH Mitsubishi Electric VN','Nhật Bản','KCN Tân Thuận, TP.HCM','support@mitsubishi-electric.vn'),
+('NCC007','Công ty TNHH Inax Việt Nam','Nhật Bản','KCN Quế Võ, Bắc Ninh','info@inax.com.vn'),
+('NCC008','Công ty CP Sắt thép Hòa Phát','Việt Nam','KCN Dung Quất, Quảng Ngãi','sales@hoaphat.vn'),
+('NCC009','Công ty TNHH Sơn Kova','Việt Nam','KCN Tân Bình, TP.HCM','contact@kovapaint.vn'),
+('NCC010','Công ty TNHH Weber Việt Nam','Pháp','KCN Biên Hòa 2, Đồng Nai','info@weber.vn'),
+('NCC011','Công ty TNHH Panasonic Việt Nam','Nhật Bản','KCN Thăng Long, Hà Nội','sales@panasonic.vn'),
+('NCC012','Công ty TNHH Tôn Hoa Sen','Việt Nam','KCN Sóng Thần, Bình Dương','info@hoasen.vn'),
+('NCC013','Công ty CP Nhôm Việt Pháp','Việt Nam','Hà Đông, Hà Nội','info@nhomvietphap.vn'),
+('NCC014','Công ty TNHH Bulong Thịnh Phát','Việt Nam','Quận 12, TP.HCM','bulong@thinhphat.vn'),
+('NCC015','Công ty CP Thiết bị Điện Long An','Việt Nam','Tân An, Long An','sales@dienlongan.vn');

@@ -1,0 +1,375 @@
+
+-- File: 06_hopdong_phancong.sql
+-- Nhóm: Dự án & Tài chính
+-- Nội dung: HOPDONG, THANHTOAN, PHANCONG_DUAN
+
+
+USE cotekcon_db;
+
+INSERT INTO HOPDONG (MaHD, id_DUAN, NgayKy, GiaTri, DieuKhoan) VALUES
+('HD2023001', 1, '2023-03-01', 4500000000000, 'Thanh toán 4 đợt theo tiến độ. Bảo hành 24 tháng.'),
+('HD2022002', 2, '2022-01-01', 3000000000000, 'Thanh toán 5 đợt. Thưởng tiến độ 5%.'),
+('HD2023003', 3, '2023-05-01', 3800000000000, 'Tạm ứng 30% giá trị hợp đồng.'),
+('HD2022004', 4, '2022-05-15', 5000000000000, 'Hợp đồng EPC. Bảo hành kết cấu 10 năm.'),
+('HD2023005', 5, '2023-10-15', 2200000000000, 'Thanh toán theo khối lượng hoàn thành (A-B).'),
+('HD2022006', 6, '2022-03-20', 1800000000000, 'Hoàn thành trong 18 tháng.'),
+('HD2023007', 7, '2023-01-01', 3500000000000, 'Yêu cầu tiêu chuẩn sạch (clean room) cấp độ 1000.'),
+('HD2022008', 8, '2022-02-01', 1200000000000, 'Bảo hành thiết bị 12 tháng.'),
+('HD2024009', 9, '2024-01-01', 4200000000000, 'Tạm ứng 15%. Yêu cầu kỹ thuật cầu dây văng.'),
+('HD2022010', 10, '2022-07-15', 1500000000000, 'Thanh toán 3 đợt.'),
+('HD2023011', 11, '2023-08-15', 800000000000, 'Hợp đồng thiết kế và thi công (D&B).'),
+('HD2022012', 12, '2022-03-01', 7700000000000, 'Hợp đồng theo đơn giá điều chỉnh.'),
+('HD2022013', 13, '2022-10-01', 6000000000000, 'Bàn giao theo từng phân khu.'),
+('HD2023014', 14, '2023-06-15', 950000000000, 'Yêu cầu tiêu chuẩn bệnh viện quốc tế JCI.'),
+('HD2022015', 15, '2022-05-01', 2100000000000, 'Thanh toán 4 đợt.'),
+('HD2023016', 16, '2023-01-30', 3300000000000, 'Hợp đồng tổng thầu.'),
+('HD2022017', 17, '2022-08-15', 1300000000000, 'Yêu cầu PCCC và chống cháy nổ nghiêm ngặt.'),
+('HD2023018', 18, '2023-04-01', 1100000000000, 'Bảo hành 24 tháng.'),
+('HD2024019', 19, '2024-01-15', 4000000000000, 'Hợp đồng chìa khóa trao tay (Turnkey).'),
+('HD2022020', 20, '2022-01-01', 109000000000000, 'Hợp đồng liên danh (Consortium).'),
+('HD2022021', 21, '2022-11-01', 700000000000, 'Đảm bảo an toàn tuyệt đối cho tuyến cáp cũ.'),
+('HD2022022', 22, '2022-07-01', 1000000000000, 'Thanh toán 3 đợt.'),
+('HD2023023', 23, '2023-06-01', 2500000000000, 'Bàn giao 2 block A và B.'),
+('HD2022024', 24, '2022-11-15', 2300000000000, 'Bảo hành tuabin 5 năm.'),
+('HD2022025', 25, '2022-04-15', 3100000000000, 'Thanh toán 4 đợt.'),
+('HD2023026', 26, '2023-09-15', 150000000000, 'Yêu cầu hệ thống xử lý nước thải chuẩn ISO 14001.'),
+('HD2024027', 27, '2024-04-15', 50000000000, 'Thi công khu vực ủ men và đóng chai.');
+
+-- ===== THANHTOAN (Thanh toán) [~85 bản ghi] =====
+-- (Giả lập mỗi HĐ thanh toán 3-4 đợt)
+-- DA001 (Đang thi công)
+INSERT INTO THANHTOAN (MaTT, id_HOPDONG, ThoiGianThanhToan, GiaTri) VALUES ('TT2303A01', 1, '2023-03-15 10:00:00', 1350000000000);
+INSERT INTO THANHTOAN (MaTT, id_HOPDONG, ThoiGianThanhToan, GiaTri) VALUES ('TT2401A02', 1, '2024-01-20 14:30:00', 1000000000000);
+INSERT INTO THANHTOAN (MaTT, id_HOPDONG, ThoiGianThanhToan, GiaTri) VALUES ('TT2411A03', 1, '2024-11-05 09:15:00', 1000000000000);
+-- DA002 (Đã hoàn thành)
+INSERT INTO THANHTOAN (MaTT, id_HOPDONG, ThoiGianThanhToan, GiaTri) VALUES ('TT2201B01', 2, '2022-01-10 11:00:00', 900000000000);
+INSERT INTO THANHTOAN (MaTT, id_HOPDONG, ThoiGianThanhToan, GiaTri) VALUES ('TT2210B02', 2, '2022-10-25 10:00:00', 700000000000);
+INSERT INTO THANHTOAN (MaTT, id_HOPDONG, ThoiGianThanhToan, GiaTri) VALUES ('TT2308B03', 2, '2023-08-15 16:00:00', 700000000000);
+INSERT INTO THANHTOAN (MaTT, id_HOPDONG, ThoiGianThanhToan, GiaTri) VALUES ('TT2408B04', 2, '2024-08-20 11:30:00', 700000000000);
+-- DA003 (Đang thi công)
+INSERT INTO THANHTOAN (MaTT, id_HOPDONG, ThoiGianThanhToan, GiaTri) VALUES ('TT2305C01', 3, '2023-05-20 09:00:00', 1140000000000);
+INSERT INTO THANHTOAN (MaTT, id_HOPDONG, ThoiGianThanhToan, GiaTri) VALUES ('TT2404C02', 3, '2024-04-10 15:00:00', 1000000000000);
+-- DA004 (Đang thi công)
+INSERT INTO THANHTOAN (MaTT, id_HOPDONG, ThoiGianThanhToan, GiaTri) VALUES ('TT2206D01', 4, '2022-06-01 10:00:00', 1500000000000);
+INSERT INTO THANHTOAN (MaTT, id_HOPDONG, ThoiGianThanhToan, GiaTri) VALUES ('TT2306D02', 4, '2023-06-01 10:00:00', 1500000000000);
+INSERT INTO THANHTOAN (MaTT, id_HOPDONG, ThoiGianThanhToan, GiaTri) VALUES ('TT2406D03', 4, '2024-06-01 10:00:00', 1000000000000);
+-- DA005 (Đang thi công)
+INSERT INTO THANHTOAN (MaTT, id_HOPDONG, ThoiGianThanhToan, GiaTri) VALUES ('TT2311E01', 5, '2023-11-01 14:00:00', 660000000000);
+INSERT INTO THANHTOAN (MaTT, id_HOPDONG, ThoiGianThanhToan, GiaTri) VALUES ('TT2409E02', 5, '2024-09-15 10:00:00', 500000000000);
+-- DA006 (Đã hoàn thành)
+INSERT INTO THANHTOAN (MaTT, id_HOPDONG, ThoiGianThanhToan, GiaTri) VALUES ('TT2204F01', 6, '2022-04-05 09:00:00', 500000000000);
+INSERT INTO THANHTOAN (MaTT, id_HOPDONG, ThoiGianThanhToan, GiaTri) VALUES ('TT2301F02', 6, '2023-01-15 11:00:00', 700000000000);
+INSERT INTO THANHTOAN (MaTT, id_HOPDONG, ThoiGianThanhToan, GiaTri) VALUES ('TT2311F03', 6, '2023-11-25 16:00:00', 600000000000);
+-- DA007 (Đã hoàn thành)
+INSERT INTO THANHTOAN (MaTT, id_HOPDONG, ThoiGianThanhToan, GiaTri) VALUES ('TT2301G01', 7, '2023-01-15 10:00:00', 1000000000000);
+INSERT INTO THANHTOAN (MaTT, id_HOPDONG, ThoiGianThanhToan, GiaTri) VALUES ('TT2310G02', 7, '2023-10-01 10:00:00', 1500000000000);
+INSERT INTO THANHTOAN (MaTT, id_HOPDONG, ThoiGianThanhToan, GiaTri) VALUES ('TT2409G03', 7, '2024-09-10 14:00:00', 1000000000000);
+-- DA008 (Đã hoàn thành)
+INSERT INTO THANHTOAN (MaTT, id_HOPDONG, ThoiGianThanhToan, GiaTri) VALUES ('TT2202H01', 8, '2022-02-20 10:00:00', 400000000000);
+INSERT INTO THANHTOAN (MaTT, id_HOPDONG, ThoiGianThanhToan, GiaTri) VALUES ('TT2210H02', 8, '2022-10-20 10:00:00', 400000000000);
+INSERT INTO THANHTOAN (MaTT, id_HOPDONG, ThoiGianThanhToan, GiaTri) VALUES ('TT2303H03', 8, '2023-03-10 15:00:00', 400000000000);
+-- DA009 (Đang thi công)
+INSERT INTO THANHTOAN (MaTT, id_HOPDONG, ThoiGianThanhToan, GiaTri) VALUES ('TT2401I01', 9, '2024-01-10 10:00:00', 1000000000000);
+INSERT INTO THANHTOAN (MaTT, id_HOPDONG, ThoiGianThanhToan, GiaTri) VALUES ('TT2501I02', 9, '2025-01-10 10:00:00', 1000000000000);
+-- DA010 (Đã hoàn thành)
+INSERT INTO THANHTOAN (MaTT, id_HOPDONG, ThoiGianThanhToan, GiaTri) VALUES ('TT2208J01', 10, '2022-08-01 10:00:00', 500000000000);
+INSERT INTO THANHTOAN (MaTT, id_HOPDONG, ThoiGianThanhToan, GiaTri) VALUES ('TT2308J02', 10, '2023-08-01 10:00:00', 500000000000);
+INSERT INTO THANHTOAN (MaTT, id_HOPDONG, ThoiGianThanhToan, GiaTri) VALUES ('TT2410J03', 10, '2024-10-10 10:00:00', 500000000000);
+-- DA011 (Đang thi công)
+INSERT INTO THANHTOAN (MaTT, id_HOPDONG, ThoiGianThanhToan, GiaTri) VALUES ('TT2309K01', 11, '2023-09-01 10:00:00', 300000000000);
+INSERT INTO THANHTOAN (MaTT, id_HOPDONG, ThoiGianThanhToan, GiaTri) VALUES ('TT2405K02', 11, '2024-05-15 10:00:00', 300000000000);
+-- DA012 (Đã hoàn thành)
+INSERT INTO THANHTOAN (MaTT, id_HOPDONG, ThoiGianThanhToan, GiaTri) VALUES ('TT2203L01', 12, '2022-03-30 10:00:00', 2000000000000);
+INSERT INTO THANHTOAN (MaTT, id_HOPDONG, ThoiGianThanhToan, GiaTri) VALUES ('TT2303L02', 12, '2023-03-30 10:00:00', 2000000000000);
+INSERT INTO THANHTOAN (MaTT, id_HOPDONG, ThoiGianThanhToan, GiaTri) VALUES ('TT2405L03', 12, '2024-05-20 10:00:00', 3700000000000);
+-- DA013 (Đang thi công)
+INSERT INTO THANHTOAN (MaTT, id_HOPDONG, ThoiGianThanhToan, GiaTri) VALUES ('TT2210M01', 13, '2022-10-10 10:00:00', 2000000000000);
+INSERT INTO THANHTOAN (MaTT, id_HOPDONG, ThoiGianThanhToan, GiaTri) VALUES ('TT2310M02', 13, '2023-10-10 10:00:00', 2000000000000);
+INSERT INTO THANHTOAN (MaTT, id_HOPDONG, ThoiGianThanhToan, GiaTri) VALUES ('TT2410M03', 13, '2024-10-10 10:00:00', 1000000000000);
+-- DA014 (Đã hoàn thành)
+INSERT INTO THANHTOAN (MaTT, id_HOPDONG, ThoiGianThanhToan, GiaTri) VALUES ('TT2307N01', 14, '2023-07-01 10:00:00', 400000000000);
+INSERT INTO THANHTOAN (MaTT, id_HOPDONG, ThoiGianThanhToan, GiaTri) VALUES ('TT2401N02', 14, '2024-01-15 10:00:00', 300000000000);
+INSERT INTO THANHTOAN (MaTT, id_HOPDONG, ThoiGianThanhToan, GiaTri) VALUES ('TT2412N03', 14, '2024-12-25 10:00:00', 250000000000);
+-- DA015 (Đã hoàn thành)
+INSERT INTO THANHTOAN (MaTT, id_HOPDONG, ThoiGianThanhToan, GiaTri) VALUES ('TT2205O01', 15, '2022-05-15 10:00:00', 700000000000);
+INSERT INTO THANHTOAN (MaTT, id_HOPDONG, ThoiGianThanhToan, GiaTri) VALUES ('TT2305O02', 15, '2023-05-15 10:00:00', 700000000000);
+INSERT INTO THANHTOAN (MaTT, id_HOPDONG, ThoiGianThanhToan, GiaTri) VALUES ('TT2412O03', 15, '2024-12-01 10:00:00', 700000000000);
+-- DA016 (Đang thi công)
+INSERT INTO THANHTOAN (MaTT, id_HOPDONG, ThoiGianThanhToan, GiaTri) VALUES ('TT2302P01', 16, '2023-02-10 10:00:00', 1000000000000);
+INSERT INTO THANHTOAN (MaTT, id_HOPDONG, ThoiGianThanhToan, GiaTri) VALUES ('TT2402P02', 16, '2024-02-10 10:00:00', 1000000000000);
+INSERT INTO THANHTOAN (MaTT, id_HOPDONG, ThoiGianThanhToan, GiaTri) VALUES ('TT2502P03', 16, '2025-02-10 10:00:00', 1300000000000);
+-- DA017 (Đã hoàn thành)
+INSERT INTO THANHTOAN (MaTT, id_HOPDONG, ThoiGianThanhToan, GiaTri) VALUES ('TT2209Q01', 17, '2022-09-01 10:00:00', 500000000000);
+INSERT INTO THANHTOAN (MaTT, id_HOPDONG, ThoiGianThanhToan, GiaTri) VALUES ('TT2309Q02', 17, '2023-09-01 10:00:00', 500000000000);
+INSERT INTO THANHTOAN (MaTT, id_HOPDONG, ThoiGianThanhToan, GiaTri) VALUES ('TT2404Q03', 17, '2024-04-15 10:00:00', 300000000000);
+-- DA018 (Đang thi công)
+INSERT INTO THANHTOAN (MaTT, id_HOPDONG, ThoiGianThanhToan, GiaTri) VALUES ('TT2304R01', 18, '2023-04-12 10:00:00', 400000000000);
+INSERT INTO THANHTOAN (MaTT, id_HOPDONG, ThoiGianThanhToan, GiaTri) VALUES ('TT2404R02', 18, '2024-04-12 10:00:00', 400000000000);
+-- DA019 (Đang thi công)
+INSERT INTO THANHTOAN (MaTT, id_HOPDONG, ThoiGianThanhToan, GiaTri) VALUES ('TT2402S01', 19, '2024-02-01 10:00:00', 1000000000000);
+INSERT INTO THANHTOAN (MaTT, id_HOPDONG, ThoiGianThanhToan, GiaTri) VALUES ('TT2502S02', 19, '2025-02-01 10:00:00', 1000000000000);
+-- DA020 (Đang thi công)
+INSERT INTO THANHTOAN (MaTT, id_HOPDONG, ThoiGianThanhToan, GiaTri) VALUES ('TT2201T01', 20, '2022-01-05 10:00:00', 20000000000000);
+INSERT INTO THANHTOAN (MaTT, id_HOPDONG, ThoiGianThanhToan, GiaTri) VALUES ('TT2301T02', 20, '2023-01-05 10:00:00', 30000000000000);
+INSERT INTO THANHTOAN (MaTT, id_HOPDONG, ThoiGianThanhToan, GiaTri) VALUES ('TT2401T03', 20, '2024-01-05 10:00:00', 30000000000000);
+INSERT INTO THANHTOAN (MaTT, id_HOPDONG, ThoiGianThanhToan, GiaTri) VALUES ('TT2501T04', 20, '2025-01-05 10:00:00', 29000000000000);
+-- DA021 (Đã hoàn thành)
+INSERT INTO THANHTOAN (MaTT, id_HOPDONG, ThoiGianThanhToan, GiaTri) VALUES ('TT2211U01', 21, '2022-11-10 10:00:00', 300000000000);
+INSERT INTO THANHTOAN (MaTT, id_HOPDONG, ThoiGianThanhToan, GiaTri) VALUES ('TT2311U02', 21, '2023-11-01 10:00:00', 400000000000);
+-- DA022 (Đã hoàn thành)
+INSERT INTO THANHTOAN (MaTT, id_HOPDONG, ThoiGianThanhToan, GiaTri) VALUES ('TT2207V01', 22, '2022-07-20 10:00:00', 300000000000);
+INSERT INTO THANHTOAN (MaTT, id_HOPDONG, ThoiGianThanhToan, GiaTri) VALUES ('TT2307V02', 22, '2023-07-20 10:00:00', 300000000000);
+INSERT INTO THANHTOAN (MaTT, id_HOPDONG, ThoiGianThanhToan, GiaTri) VALUES ('TT2408V03', 22, '2024-08-10 10:00:00', 400000000000);
+-- DA023 (Đang thi công)
+INSERT INTO THANHTOAN (MaTT, id_HOPDONG, ThoiGianThanhToan, GiaTri) VALUES ('TT2306W01', 23, '2023-06-15 10:00:00', 800000000000);
+INSERT INTO THANHTOAN (MaTT, id_HOPDONG, ThoiGianThanhToan, GiaTri) VALUES ('TT2406W02', 23, '2024-06-15 10:00:00', 800000000000);
+-- DA024 (Đã hoàn thành)
+INSERT INTO THANHTOAN (MaTT, id_HOPDONG, ThoiGianThanhToan, GiaTri) VALUES ('TT2212X01', 24, '2022-12-01 10:00:00', 1000000000000);
+INSERT INTO THANHTOAN (MaTT, id_HOPDONG, ThoiGianThanhToan, GiaTri) VALUES ('TT2312X02', 24, '2023-12-01 10:00:00', 1000000000000);
+INSERT INTO THANHTOAN (MaTT, id_HOPDONG, ThoiGianThanhToan, GiaTri) VALUES ('TT2405X03', 24, '2024-05-25 10:00:00', 300000000000);
+-- DA025 (Đã hoàn thành)
+INSERT INTO THANHTOAN (MaTT, id_HOPDONG, ThoiGianThanhToan, GiaTri) VALUES ('TT2204Y01', 25, '2022-04-30 10:00:00', 1000000000000);
+INSERT INTO THANHTOAN (MaTT, id_HOPDONG, ThoiGianThanhToan, GiaTri) VALUES ('TT2304Y02', 25, '2023-04-30 10:00:00', 1000000000000);
+INSERT INTO THANHTOAN (MaTT, id_HOPDONG, ThoiGianThanhToan, GiaTri) VALUES ('TT2411Y03', 25, '2024-11-20 10:00:00', 1100000000000);
+-- DA026 (Kutzman - Đang thi công)
+INSERT INTO THANHTOAN (MaTT, id_HOPDONG, ThoiGianThanhToan, GiaTri) VALUES ('TT2310Z01', 26, '2023-10-01 10:00:00', 50000000000);
+INSERT INTO THANHTOAN (MaTT, id_HOPDONG, ThoiGianThanhToan, GiaTri) VALUES ('TT2406Z02', 26, '2024-06-01 10:00:00', 50000000000);
+INSERT INTO THANHTOAN (MaTT, id_HOPDONG, ThoiGianThanhToan, GiaTri) VALUES ('TT2501Z03', 26, '2025-01-15 10:00:00', 30000000000);
+-- DA027 (Hải Xồm - Đang thi công)
+INSERT INTO THANHTOAN (MaTT, id_HOPDONG, ThoiGianThanhToan, GiaTri) VALUES ('TT2405AA01', 27, '2024-05-01 10:00:00', 20000000000);
+INSERT INTO THANHTOAN (MaTT, id_HOPDONG, ThoiGianThanhToan, GiaTri) VALUES ('TT2412AA02', 27, '2024-12-15 10:00:00', 15000000000);
+
+-- ===== PHANCONG_DUAN (Phân công Dự án) [~300 bản ghi] =====
+-- Logic map:
+-- PB1 (HCNS, 1-8) -> VT007 (An toàn)
+-- PB2 (Kế toán, 9-18) -> VT005 (Kế toán DA)
+-- PB3 (Kỹ thuật, 19-43) -> VT002 (Thiết kế), VT008 (Kỹ sư HT)
+-- PB4 (Thi công, 44-63) -> VT003 (Giám sát TC), VT008 (Kỹ sư HT), VT007 (An toàn)
+-- PB5 (Vật tư, 64-71) -> VT004 (Thủ kho DA), VT006 (Quản lý VT)
+-- PB6 (Dự án, 72-78) -> VT001 (Chủ nhiệm DA)
+-- PB7 (Bảo trì, 79-80) -> (Không phân công dự án mới, chỉ bảo trì dự án cũ)
+
+-- Phân công cho 80 nhân viên (mỗi NV 3-4 dự án)
+-- NV 1-8 (PB1 - HCNS) -> VT007 (An toàn LĐ)
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (1, 2, 7, 200, '2022-01-20', 'Giám sát an toàn (đã xong)');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (1, 13, 7, 500, '2022-11-01', 'Phụ trách an toàn khu Ocean');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (1, 20, 7, 1000, '2023-01-01', 'Giám sát an toàn (đang làm)');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (2, 2, 7, 200, '2022-01-20', 'Giám sát an toàn (đã xong)');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (2, 1, 7, 600, '2023-03-20', 'Phụ trách an toàn');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (4, 4, 7, 800, '2022-06-15', 'Phụ trách an toàn hầm');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (4, 12, 7, 500, '2022-04-01', 'An toàn thi công cao tốc (đã xong)');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (4, 20, 7, 1000, '2023-01-01', 'Giám sát an toàn (đang làm)');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (5, 7, 7, 400, '2023-01-20', 'An toàn nhà máy (đã xong)');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (5, 11, 7, 300, '2023-09-15', 'An toàn Data Center');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (5, 19, 7, 400, '2024-02-15', 'Giám sát an toàn');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (6, 14, 7, 200, '2023-07-15', 'An toàn bệnh viện (đã xong)');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (6, 18, 7, 300, '2023-04-20', 'Giám sát an toàn');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (6, 23, 7, 300, '2023-06-20', 'Giám sát an toàn');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (7, 6, 7, 300, '2022-04-15', 'An toàn FLC (đã xong)');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (7, 10, 7, 300, '2022-08-15', 'An toàn (đã xong)');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (7, 1, 7, 400, '2023-03-20', 'Giám sát an toàn');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (8, 5, 7, 400, '2023-11-10', 'Giám sát an toàn');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (8, 16, 7, 400, '2023-02-15', 'Giám sát an toàn');
+
+-- NV 9-18 (PB2 - Kế toán) -> VT005 (Kế toán DA)
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (9, 20, 5, 1000, '2024-08-10', 'Kế toán trưởng dự án Long Thành');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (9, 1, 5, 600, '2024-08-10', 'Kế toán dự án SunBay');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (10, 2, 5, 400, '2022-01-20', 'Kế toán (đã xong)');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (10, 4, 5, 800, '2022-06-15', 'Kế toán dự án Đèo Cả 2');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (10, 12, 5, 600, '2022-04-01', 'Kế toán cao tốc (đã xong)');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (11, 6, 5, 300, '2022-04-15', 'Kế toán (đã xong)');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (11, 10, 5, 300, '2022-08-15', 'Kế toán (đã xong)');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (11, 13, 5, 500, '2022-11-01', 'Kế toán dự án');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (12, 1, 5, 600, '2025-06-10', 'Kế toán dự án');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (12, 3, 5, 600, '2025-06-10', 'Kế toán dự án');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (13, 7, 5, 400, '2023-01-20', 'Kế toán (đã xong)');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (13, 11, 5, 300, '2023-09-15', 'Kế toán dự án');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (13, 19, 5, 400, '2024-02-15', 'Kế toán dự án');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (14, 14, 5, 200, '2023-07-15', 'Kế toán (đã xong)');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (14, 18, 5, 300, '2023-04-20', 'Kế toán dự án');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (14, 23, 5, 300, '2023-06-20', 'Kế toán dự án');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (15, 15, 5, 400, '2022-05-20', 'Kế toán (đã xong)');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (15, 17, 5, 300, '2022-09-15', 'Kế toán kho (đã xong)');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (15, 20, 5, 1000, '2022-01-15', 'Kế toán dự án');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (16, 21, 5, 200, '2022-11-15', 'Kế toán (đã xong)');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (16, 22, 5, 300, '2022-07-25', 'Kế toán (đã xong)');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (17, 5, 5, 400, '2023-11-10', 'Kế toán dự án');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (17, 16, 5, 400, '2023-02-15', 'Kế toán dự án');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (18, 24, 5, 300, '2022-12-10', 'Kế toán (đã xong)');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (18, 25, 5, 400, '2022-05-10', 'Kế toán (đã xong)');
+
+-- NV 19-43 (PB3 - Kỹ thuật) -> VT002 (Thiết kế), VT008 (Kỹ sư HT)
+-- (Phân bổ nhiều nhất)
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (19, 2, 2, 300, '2022-01-20', 'Thiết kế (đã xong)');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (19, 1, 2, 500, '2023-03-20', 'Thiết kế cảnh quan');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (20, 4, 8, 800, '2022-06-15', 'Kỹ sư hiện trường (hầm)');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (20, 12, 8, 500, '2022-04-01', 'Kỹ sư (đã xong)');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (20, 20, 8, 1000, '2023-01-01', 'Kỹ sư hiện trường');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (21, 2, 8, 400, '2022-01-20', 'Kỹ sư (đã xong)');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (21, 7, 8, 400, '2023-01-20', 'Kỹ sư (đã xong)');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (21, 13, 8, 500, '2022-11-01', 'Kỹ sư hiện trường');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (22, 11, 8, 300, '2023-09-15', 'Kỹ sư Data Center');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (22, 14, 8, 200, '2023-07-15', 'Kỹ sư (đã xong)');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (22, 19, 8, 400, '2024-02-15', 'Kỹ sư kết cấu');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (23, 15, 2, 400, '2022-05-20', 'Thiết kế (đã xong)');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (23, 17, 2, 300, '2022-09-15', 'Thiết kế (đã xong)');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (23, 20, 2, 1000, '2022-01-15', 'Thiết kế trưởng');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (24, 21, 8, 200, '2022-11-15', 'Kỹ sư (đã xong)');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (24, 22, 8, 300, '2022-07-25', 'Kỹ sư (đã xong)');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (25, 5, 2, 400, '2023-11-10', 'Thiết kế');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (25, 16, 2, 400, '2023-02-15', 'Thiết kế');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (26, 24, 8, 300, '2022-12-10', 'Kỹ sư điện gió (đã xong)');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (26, 25, 8, 400, '2022-05-10', 'Kỹ sư (đã xong)');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (26, 3, 8, 600, '2023-05-25', 'Kỹ sư hiện trường');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (28, 4, 2, 800, '2022-06-15', 'Thiết kế hầm');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (28, 9, 2, 700, '2024-01-15', 'Thiết kế cầu');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (29, 12, 8, 500, '2022-04-01', 'Kỹ sư (đã xong)');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (29, 20, 8, 1000, '2023-01-01', 'Kỹ sư hiện trường');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (30, 7, 8, 400, '2023-01-20', 'Kỹ sư (đã xong)');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (30, 11, 8, 300, '2023-09-15', 'Kỹ sư');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (30, 19, 8, 400, '2024-02-15', 'Kỹ sư');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (31, 1, 8, 500, '2023-03-20', 'Kỹ sư');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (31, 5, 8, 400, '2023-11-10', 'Kỹ sư');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (32, 2, 2, 300, '2022-01-20', 'Thiết kế (đã xong)');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (32, 20, 2, 1000, '2022-01-15', 'Thiết kế');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (33, 3, 2, 600, '2023-05-25', 'Thiết kế MEP');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (33, 8, 8, 200, '2022-02-25', 'Kỹ sư MEP (đã xong)');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (33, 13, 8, 500, '2022-11-01', 'Kỹ sư MEP');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (34, 14, 8, 200, '2023-07-15', 'Kỹ sư (đã xong)');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (34, 18, 8, 300, '2023-04-20', 'Kỹ sư');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (34, 23, 8, 300, '2023-06-20', 'Kỹ sư');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (35, 1, 2, 500, '2023-03-20', 'Thiết kế MEP');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (35, 5, 2, 400, '2023-11-10', 'Thiết kế MEP');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (37, 15, 8, 400, '2022-05-20', 'Kỹ sư (đã xong)');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (37, 17, 8, 300, '2022-09-15', 'Kỹ sư (đã xong)');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (37, 20, 8, 1000, '2022-01-15', 'Kỹ sư');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (38, 16, 8, 400, '2023-02-15', 'Kỹ sư');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (38, 21, 8, 200, '2022-11-15', 'Kỹ sư (đã xong)');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (38, 22, 8, 300, '2022-07-25', 'Kỹ sư (đã xong)');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (39, 4, 8, 800, '2022-06-15', 'Kỹ sư');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (39, 12, 8, 500, '2022-04-01', 'Kỹ sư (đã xong)');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (39, 20, 8, 1000, '2023-01-01', 'Kỹ sư');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (40, 24, 8, 300, '2022-12-10', 'Kỹ sư (đã xong)');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (40, 25, 8, 400, '2022-05-10', 'Kỹ sư (đã xong)');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (40, 3, 8, 600, '2023-05-25', 'Kỹ sư');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (42, 6, 8, 300, '2022-04-15', 'Kỹ sư (đã xong)');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (42, 10, 8, 300, '2022-08-15', 'Kỹ sư (đã xong)');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (42, 1, 8, 500, '2023-03-20', 'Kỹ sư');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (43, 7, 2, 400, '2023-01-20', 'Thiết kế (đã xong)');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (43, 11, 2, 300, '2023-09-15', 'Thiết kế');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (43, 19, 2, 400, '2024-02-15', 'Thiết kế');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (23, 26, 2, 400, '2023-10-10', 'Thiết kế chính Nhà máy Kutzman');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (33, 26, 8, 400, '2023-10-10', 'Kỹ sư MEP Nhà máy Kutzman');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (35, 26, 8, 400, '2023-10-10', 'Kỹ sư MEP Nhà máy Kutzman');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (28, 27, 2, 300, '2024-05-10', 'Thiết kế nhà máy Hải Xồm');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (30, 27, 8, 300, '2024-05-10', 'Kỹ sư hiện trường Hải Xồm');
+
+
+-- NV 44-63 (PB4 - Thi công) -> VT003 (Giám sát TC), VT008 (Kỹ sư HT), VT007 (An toàn)
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (44, 1, 3, 600, '2023-03-20', 'Giám sát thi công');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (44, 5, 3, 500, '2023-11-10', 'Giám sát');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (44, 9, 3, 700, '2024-01-15', 'Giám sát cầu');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (45, 20, 3, 1000, '2022-01-15', 'Phó GĐ dự án Long Thành');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (45, 4, 3, 800, '2022-06-15', 'Giám sát trưởng (hầm)');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (46, 7, 8, 400, '2023-01-20', 'Kỹ sư (đã xong)');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (46, 11, 8, 300, '2023-09-15', 'Kỹ sư');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (46, 19, 8, 400, '2024-02-15', 'Kỹ sư');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (47, 14, 8, 200, '2023-07-15', 'Kỹ sư (đã xong)');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (47, 18, 8, 300, '2023-04-20', 'Kỹ sư');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (47, 23, 8, 300, '2023-06-20', 'Kỹ sư');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (48, 15, 8, 400, '2022-05-20', 'Kỹ sư (đã xong)');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (48, 17, 8, 300, '2022-09-15', 'Kỹ sư (đã xong)');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (48, 20, 8, 1000, '2023-07-10', 'Kỹ sư');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (49, 16, 3, 400, '2023-02-15', 'Trưởng ban An toàn');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (49, 21, 3, 200, '2022-11-15', 'Giám sát (đã xong)');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (49, 22, 3, 300, '2022-07-25', 'Giám sát (đã xong)');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (50, 4, 7, 800, '2022-06-15', 'An toàn');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (50, 12, 7, 500, '2022-04-01', 'An toàn (đã xong)');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (50, 20, 7, 1000, '2023-01-01', 'An toàn');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (51, 24, 7, 300, '2022-12-10', 'An toàn (đã xong)');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (51, 25, 7, 400, '2022-05-10', 'An toàn (đã xong)');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (51, 3, 7, 600, '2023-05-25', 'An toàn');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (52, 6, 3, 300, '2022-04-15', 'Giám sát (đã xong)');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (52, 10, 3, 300, '2022-08-15', 'Giám sát (đã xong)');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (52, 1, 3, 500, '2023-03-20', 'Giám sát');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (53, 7, 3, 400, '2023-01-20', 'Giám sát MEP (đã xong)');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (53, 11, 3, 300, '2023-09-15', 'Giám sát MEP');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (53, 19, 3, 400, '2024-02-15', 'Giám sát MEP');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (54, 1, 3, 600, '2023-03-20', 'Chỉ huy trưởng');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (54, 13, 3, 500, '2022-11-01', 'Chỉ huy trưởng');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (54, 20, 3, 1000, '2022-01-15', 'Giám sát trưởng');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (55, 14, 8, 200, '2023-07-15', 'Kỹ sư (đã xong)');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (55, 18, 8, 300, '2023-04-20', 'Kỹ sư');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (55, 23, 8, 300, '2023-06-20', 'Kỹ sư');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (56, 15, 3, 400, '2022-05-20', 'Giám sát (đã xong)');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (56, 17, 3, 300, '2022-09-15', 'Giám sát (đã xong)');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (56, 20, 3, 1000, '2022-01-15', 'Giám sát');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (57, 16, 7, 400, '2023-02-15', 'An toàn');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (57, 21, 7, 200, '2022-11-15', 'An toàn (đã xong)');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (57, 22, 7, 300, '2022-07-25', 'An toàn (đã xong)');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (58, 4, 3, 800, '2022-06-15', 'Giám sát trưởng An toàn');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (58, 12, 3, 500, '2022-04-01', 'Giám sát (đã xong)');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (58, 20, 3, 1000, '2022-01-15', 'Giám sát');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (59, 24, 8, 300, '2022-12-10', 'Kỹ sư (đã xong)');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (59, 25, 8, 400, '2022-05-10', 'Kỹ sư (đã xong)');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (59, 3, 8, 600, '2023-05-25', 'Kỹ sư');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (60, 6, 8, 300, '2022-04-15', 'Kỹ sư (đã xong)');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (60, 10, 8, 300, '2022-08-15', 'Kỹ sư (đã xong)');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (60, 1, 8, 500, '2023-03-20', 'Kỹ sư');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (62, 7, 3, 400, '2023-01-20', 'Giám sát (đã xong)');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (62, 11, 3, 300, '2023-09-15', 'Giám sát');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (62, 19, 3, 400, '2024-02-15', 'Giám sát');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (63, 14, 8, 200, '2023-07-15', 'Kỹ sư (đã xong)');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (63, 18, 8, 300, '2023-04-20', 'Kỹ sư');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (63, 23, 8, 300, '2023-06-20', 'Kỹ sư');
+-- ** Thêm dự án mới (Kutzman, Hải Xồm) cho Thi công
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (54, 26, 3, 400, '2023-10-10', 'Chỉ huy trưởng Kutzman');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (57, 26, 7, 400, '2023-10-10', 'An toàn LĐ Kutzman');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (44, 27, 3, 300, '2024-05-10', 'Giám sát Hải Xồm');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (51, 27, 7, 300, '2024-05-10', 'An toàn LĐ Hải Xồm');
+
+
+-- NV 64-71 (PB5 - Vật tư) -> VT004 (Thủ kho DA), VT006 (Quản lý VT)
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (64, 20, 4, 1000, '2022-01-15', 'Thủ kho tổng Long Thành');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (64, 1, 4, 600, '2023-03-20', 'Thủ kho dự án');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (65, 4, 4, 800, '2022-06-15', 'Thủ kho hầm');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (65, 12, 4, 500, '2022-04-01', 'Thủ kho (đã xong)');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (65, 13, 4, 500, '2022-11-01', 'Thủ kho');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (66, 2, 6, 400, '2022-01-20', 'Quản lý VT (đã xong)');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (66, 7, 6, 400, '2023-01-20', 'Quản lý VT (đã xong)');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (66, 19, 6, 400, '2024-02-15', 'Quản lý VT');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (67, 11, 6, 300, '2023-09-15', 'Quản lý VT');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (67, 14, 6, 200, '2023-07-15', 'Quản lý VT (đã xong)');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (67, 18, 6, 300, '2023-04-20', 'Quản lý VT');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (70, 23, 4, 300, '2023-06-20', 'Thủ kho');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (70, 15, 4, 400, '2022-05-20', 'Thủ kho (đã xong)');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (70, 17, 4, 300, '2022-09-15', 'Thủ kho (đã xong)');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (71, 16, 6, 400, '2023-02-15', 'Quản lý VT');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (71, 21, 6, 200, '2022-11-15', 'Quản lý VT (đã xong)');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (71, 22, 6, 300, '2022-07-25', 'Quản lý VT (đã xong)');
+-- ** Thêm dự án mới (Kutzman, Hải Xồm) cho Vật tư
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (64, 26, 4, 400, '2023-10-10', 'Thủ kho Kutzman');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (67, 27, 6, 300, '2024-05-10', 'Quản lý VT Hải Xồm');
+
+
+-- NV 72-78 (PB6 - Dự án) -> VT001 (Chủ nhiệm DA)
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (72, 1, 1, 600, '2023-03-15', 'Chủ nhiệm dự án SunBay');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (72, 6, 1, 300, '2022-04-05', 'Chủ nhiệm FLC (đã xong)');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (73, 2, 1, 400, '2022-01-10', 'Chủ nhiệm Landmark (đã xong)');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (73, 5, 1, 500, '2023-11-01', 'Chủ nhiệm Estella');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (73, 19, 1, 400, '2024-02-01', 'Chủ nhiệm Sports City');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (74, 3, 1, 600, '2023-05-20', 'Chủ nhiệm Ecopark HD');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (74, 16, 1, 400, '2023-02-10', 'Chủ nhiệm Waterpoint');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (75, 4, 1, 800, '2022-06-01', 'Chủ nhiệm dự án Đèo Cả 2');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (75, 12, 1, 500, '2022-03-30', 'Chủ nhiệm Cao tốc (đã xong)');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (75, 20, 1, 1000, '2022-01-05', 'Phó ban điều hành Long Thành');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (76, 7, 1, 400, '2023-01-15', 'Chủ nhiệm Intel P2 (đã xong)');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (76, 11, 1, 300, '2023-09-01', 'Chủ nhiệm Data Center');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (77, 8, 1, 200, '2022-02-20', 'Chủ nhiệm (đã xong)');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (77, 24, 1, 300, '2022-12-01', 'Chủ nhiệm (đã xong)');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (77, 9, 1, 700, '2024-01-10', 'Chủ nhiệm Cầu Thạch Bản');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (78, 10, 1, 300, '2022-08-01', 'Chủ nhiệm (đã xong)');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (78, 14, 1, 200, '2023-07-01', 'Chủ nhiệm (đã xong)');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (78, 18, 1, 300, '2023-04-12', 'Chủ nhiệm');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (77, 26, 1, 400, '2023-10-01', 'Chủ nhiệm dự án Kutzman');
+INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (72, 27, 1, 300, '2024-05-01', 'Chủ nhiệm dự án Hải Xồm');
