@@ -21,7 +21,7 @@ INSERT INTO CHUDTU (MaChuDT, TenDoanhNghiep, MaSoThue, TenNDD, ChucDanhNDD, Emai
 ('CDT013', 'Công ty TNHH Intel Products Việt Nam', '0305240888', 'Kim Huat Ooi', 'Tổng Giám đốc', 'vietnam.intel@intel.com', 'Hoa Kỳ', 'TP. Hồ Chí Minh', 'Tân Phú', 'Khu Công nghệ cao, TP. Thủ Đức'),
 ('CDT014', 'Bệnh viện Quốc tế VinMec', '0106093888', 'Lê Thúy Anh', 'Tổng Giám đốc', 'info@vinmec.com', 'Việt Nam', 'Hà Nội', 'Vĩnh Tuy', '458 Minh Khai, Quận Hai Bà Trưng'),
 ('CDT015', 'Tập đoàn Xăng dầu Việt Nam (Petrolimex)', '0100107888', 'Phạm Văn Thanh', 'Chủ tịch HĐQT', 'info@petrolimex.com.vn', 'Việt Nam', 'Hà Nội', 'Khâm Thiên', 'Số 1 Khâm Thiên, Quận Đống Đa'),
-('CDT016', 'Tập đoàn microShop', '0105101999', 'Nguyễn Hải Hưng', 'Chủ tịch', 'nguyenhaihung0510@gmail.com', 'Việt Nam', 'Bắc Ninh', 'Phường Võ Cường', 'Số 43 Nguyễn Trãi, Bồ Sơn');
+('CDT016', 'Tập đoàn microShop', '0105101999', 'Nguyễn Hải Hưng', 'Chủ tịch', 'nguyenhaihung0510@gmail.com', 'Việt Nam', 'Bắc Ninh', 'Võ Cường', 'Số 43 Nguyễn Trãi, Bồ Sơn');
  
 
 INSERT INTO DUAN (MaDA, id_CHUDTU, TenDA, QuocGia, Tinh, Phuong, DiaChi_ChiTiet, NgayBatDau, NgayKTDuKien, NgayKTThucTe, NganSach) VALUES
