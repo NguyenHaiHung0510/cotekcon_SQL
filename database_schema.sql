@@ -6,8 +6,6 @@ SET default_storage_engine = InnoDB;
 SET NAMES utf8mb4;
 SET COLLATION_CONNECTION = 'utf8mb4_unicode_ci';
 
--- Doi tat ca Email_LH -> Email
-
 CREATE TABLE PHONGBAN (
 	id INT PRIMARY KEY AUTO_INCREMENT,
     MaPB VARCHAR(20) NOT NULL UNIQUE,
@@ -131,8 +129,8 @@ CREATE TABLE DUAN (
     NgayKTThucTe DATE,
     NganSach DECIMAL(15, 0) CHECK ( NganSach >= 0 ),
     FOREIGN KEY (id_CHUDTU) REFERENCES CHUDTU(id),
-    CONSTRAINT check_DUAN_ngayKTTDuKien_hople CHECK (NgayBatDau IS NULL OR NgayKTDuKien >= NgayBatDau),
-    CONSTRAINT check_DUAN_ngayKTThucTe_hople CHECK (NgayBatDau IS NULL OR NgayKTThucTe >= NgayBatDau)
+    CONSTRAINT check_DUAN_ngayKTTDuKien_hople CHECK (NgayBatDau IS NULL OR NgayKTDuKien IS NULL OR NgayKTDuKien >= NgayBatDau),
+    CONSTRAINT check_DUAN_ngayKTThucTe_hople CHECK (NgayBatDau IS NULL OR NgayKTDuKien IS NULL OR  NgayKTThucTe >= NgayBatDau)
 );
 
 CREATE TABLE CHAMCONG (
