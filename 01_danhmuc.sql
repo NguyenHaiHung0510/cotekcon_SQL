@@ -100,7 +100,27 @@ INSERT INTO DANHMUC_VATTU (MaVTu, TenVTu, DonViTinh) VALUES
 ('VTU027','Keo dán gạch Weber','Bao'),
 ('VTU028','Bulong neo M12','Cái'),
 ('VTU029','Dây cáp thép 12mm','Mét'),
-('VTU030','Cốt pha phủ phim','Tấm');
+('VTU030','Cốt pha phủ phim','Tấm'),
+('VTU031','Ống Inox 304 phi 100 (vi sinh)','Mét'),
+('VTU032','Van bi Inox 304 (vi sinh)','Cái'),
+('VTU033','Máy bơm ly tâm KSB (bơm thực phẩm)','Cái'),
+('VTU034','Sơn Epoxy Sika (sàn nhà xưởng)','Bộ'),
+('VTU035','Phụ gia bê tông Sika R7','Lít'),
+('VTU036','Bảo ôn Polyurethane (Foam cách nhiệt)','Khối'),
+('VTU037','Tủ điện điều khiển PLC Siemens S7-1200','Bộ'),
+('VTU038','Cáp mạng CAT6 UTP','Thùng (305m)'),
+('VTU039','Hệ thống lọc nước RO 1000L/h','Hệ'),
+('VTU040','Thép hình U200x80','Kg'),
+('VTU041','Thép hình I300x150','Kg'),
+('VTU042','Panel kho lạnh EPS dày 100mm','Mét vuông'),
+('VTU043','Sàn Grating (Thép mạ kẽm) 50x5','Tấm'),
+('VTU044','Hệ thống thông gió nhà xưởng','Hệ'),
+('VTU045','Bu lông Inox 304 M16','Cái'),
+('VTU046','Máng cáp (Cable tray) 200x100mm','Mét'),
+('VTU047','Sơn Jotun ngoại thất (Jotashield)','Thùng'),
+('VTU048','Phụ gia chống thấm SikaTop Seal 107','Bộ'),
+('VTU049','Cửa cuốn công nghiệp (Motor)','Bộ'),
+('VTU050','Thiết bị đo mức Siemens (Level sensor)','Cái');
 
 
 INSERT INTO NHACUNGCAP (MaNCC, TenNCC, QuocGia, DiaChi_ChiTiet, Email) VALUES
@@ -118,4 +138,14 @@ INSERT INTO NHACUNGCAP (MaNCC, TenNCC, QuocGia, DiaChi_ChiTiet, Email) VALUES
 ('NCC012','Công ty TNHH Tôn Hoa Sen','Việt Nam','KCN Sóng Thần, Bình Dương','info@hoasen.vn'),
 ('NCC013','Công ty CP Nhôm Việt Pháp','Việt Nam','Hà Đông, Hà Nội','info@nhomvietphap.vn'),
 ('NCC014','Công ty TNHH Bulong Thịnh Phát','Việt Nam','Quận 12, TP.HCM','bulong@thinhphat.vn'),
-('NCC015','Công ty CP Thiết bị Điện Long An','Việt Nam','Tân An, Long An','sales@dienlongan.vn');
+('NCC015','Công ty CP Thiết bị Điện Long An','Việt Nam','Tân An, Long An','sales@dienlongan.vn'),
+('NCC016','Công ty TNHH Inox An Phát','Việt Nam','KCN Sóng Thần 2, Bình Dương','sales@inoxanphat.vn'),
+('NCC017','Công ty TNHH KSB Việt Nam','Đức','Tòa nhà Deutsches Haus, Quận 1, TP.HCM','info.vn@ksb.com'),
+('NCC018','Công ty TNHH Sika Việt Nam','Thụy Sĩ','KCN Nhơn Trạch, Đồng Nai','sika.vietnam@vn.sika.com'),
+('NCC019','Công ty CP Cách nhiệt Phương Nam','Việt Nam','Quận 7, TP.HCM','info@phuongnam.com.vn'),
+('NCC020','Công ty TNHH Siemens Việt Nam','Đức','Tòa nhà Bitexco, Q.1, TP.HCM','contact.vn@siemens.com'),
+('NCC021','Công ty CP Cáp điện VCOM','Việt Nam','KCN Tân Tạo, TP.HCM','sales@vcom.vn'),
+('NCC022','Công ty TNHH Lọc nước Pentair','Hoa Kỳ','Quận 3, TP.HCM','pentair.vn@pentair.com'),
+('NCC023','Công ty TNHH Thép Posco Việt Nam','Hàn Quốc','KCN Phú Mỹ, Bà Rịa - Vũng Tàu','sales@posco.vn'),
+('NCC024','Công ty TNHH Sơn Jotun Việt Nam','Na Uy','KCN VSIP 1, Bình Dương','contact.vn@jotun.com'),
+('NCC025','Tập đoàn Austdoor','Việt Nam','KCN Phố Nối A, Hưng Yên','info@austdoor.vn');
