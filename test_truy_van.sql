@@ -50,3 +50,5 @@ select * from PHANCONG_DUAN;
 select * from SUDUNG_VATTU;
 
 select * from BAOCAO_TIENDO;
+
+select * from nhanvien;
