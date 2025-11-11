@@ -52,3 +52,7 @@ select * from SUDUNG_VATTU;
 select * from BAOCAO_TIENDO;
 
 select * from nhanvien;
+
+select COUNT(*) from TT_LUONG;
+
+select COUNT(*) from chamcong;
