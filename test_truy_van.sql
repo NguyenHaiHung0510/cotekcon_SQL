@@ -46,6 +46,7 @@ select * from THANHTOAN;
 select * from PHANCONG_DUAN;
 
 -- 07 
+use cotekcon_db;
 
 select * from SUDUNG_VATTU;
 
