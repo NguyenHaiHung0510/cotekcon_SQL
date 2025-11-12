@@ -138,7 +138,6 @@ INSERT INTO THANHTOAN (MaTT, id_HOPDONG, ThoiGianThanhToan, GiaTri) VALUES ('TT0
 INSERT INTO THANHTOAN (MaTT, id_HOPDONG, ThoiGianThanhToan, GiaTri) VALUES ('TT000073', 27, '2024-05-01 10:00:00', 20000000000);
 INSERT INTO THANHTOAN (MaTT, id_HOPDONG, ThoiGianThanhToan, GiaTri) VALUES ('TT000074', 27, '2024-12-15 10:00:00', 15000000000);
 
--- PHANCONG_DUAN (Chỉ bao gồm các phân công cho dự án ĐANG THI CÔNG)
 -- NV 1-8 (PB1 - HCNS) -> VT007 (An toàn LĐ)
 INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (1, 13, 7, 500, '2022-11-01', 'Phụ trách an toàn khu Ocean');
 INSERT INTO PHANCONG_DUAN (id_NHANVIEN, id_DUAN, id_VAITRO_DA, SoGioDuKien, NgayBatDau, GhiChu) VALUES (1, 20, 7, 1000, '2023-01-01', 'Giám sát an toàn (đang làm)');

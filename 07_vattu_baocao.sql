@@ -251,7 +251,6 @@ INSERT INTO SUDUNG_VATTU (MaSDVT, id_DUAN, id_DANHMUC_VATTU, SoLuongSuDung, id_N
 
 -- ===== BAOCAO_TIENDO =====
 -- Logic: TyLeHT tăng dần. Dự án đã xong (NgayKTThucTe != NULL) có báo cáo cuối là 100%.
-
 -- DA001 (Đang thi công)
 INSERT INTO BAOCAO_TIENDO (MaBC, id_DUAN, ThoiGianLap, TyLeHT, MoTaNgan) VALUES
 ('BC000001', 1, '2023-09-15 17:00:00', 15.00, 'Hoàn thành san lấp mặt bằng, bắt đầu ép cọc.'),
